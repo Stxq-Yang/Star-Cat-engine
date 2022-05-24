@@ -34,7 +34,9 @@
 *--------------------------------------------------*
 * 2022/5/22 | failed        | Stxq | try circle    *
 * -------------------------------------------------*
-* 2022/5/21 | 0.1.0.5 Alpha | Stxq | event system  *
+* 2022/5/24 | 0.1.0.5 Alpha | Stxq | event system  *
+----------------------------------------------------
+* 2022/5/25 | 0.1.0.6 Alpha | Stxq | fix pos bug   *
 ***************************************************/
 #ifndef SCEngine_h
 #define SCEngine_h
@@ -51,7 +53,7 @@
 #include <string>
 #include <iostream>
 #include <gl/wglext.h>
-#define version "0.1.0.5 Alpha"
+#define version "0.1.0.6 Alpha"
 #define glversion glGetString(GL_VERSION)
 #define gluversion gluGetString(GLU_VERSION)
 #define main() WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
@@ -419,8 +421,8 @@ namespace SCE{
                 if (run){
                     glColor4f(color.R,color.G,color.B,color.A);
                     glBegin(GL_LINE_STRIP);
-                        glVertex2f((point1.x-Windowsize/2)*25/(Windowsize->x/2),(point1.y/2)*25/(Windowsize->x/2));
-                        glVertex2f(point2.x,point2.y);
+                        glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2));
+                        glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2));
                     glEnd();
                 }
             }
@@ -437,18 +439,18 @@ namespace SCE{
                     if (isfill){
                         glColor4f(color.R,color.G,color.B,color.A);
                         glBegin(GL_QUADS);
-                            glVertex2f(point1.x,point1.y) ;
-                            glVertex2f(point2.x,point1.y) ;
-                            glVertex2f(point2.x,point2.y) ;
-                            glVertex2f(point1.x,point2.y) ;
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
                         glEnd();
                     }else{
                         glColor4f(color.R,color.G,color.B,color.A);
                         glBegin(GL_LINE_LOOP);
-                            glVertex2f(point1.x,point1.y);
-                            glVertex2f(point2.x,point1.y);
-                            glVertex2f(point2.x,point2.y);
-                            glVertex2f(point1.x,point2.y);
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
                         glEnd();
                     }
                     glPopMatrix();
