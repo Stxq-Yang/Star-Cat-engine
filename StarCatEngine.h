@@ -421,8 +421,8 @@ namespace SCE{
                 if (run){
                     glColor4f(color.R,color.G,color.B,color.A);
                     glBegin(GL_LINE_STRIP);
-                        glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2));
-                        glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2));
+                        glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*-25/(Windowsize->y/2));
+                        glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*-25/(Windowsize->y/2));
                     glEnd();
                 }
             }
@@ -439,18 +439,18 @@ namespace SCE{
                     if (isfill){
                         glColor4f(color.R,color.G,color.B,color.A);
                         glBegin(GL_QUADS);
-                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
-                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
-                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
-                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
                         glEnd();
                     }else{
                         glColor4f(color.R,color.G,color.B,color.A);
                         glBegin(GL_LINE_LOOP);
-                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
-                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
-                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
-                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*25/(Windowsize->y/2)) ;
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point1.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
+                            glVertex2f((point2.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
+                            glVertex2f((point1.x-Windowsize->x/2)*25/(Windowsize->x/2),(point2.y-Windowsize->y/2)*-25/(Windowsize->y/2)) ;
                         glEnd();
                     }
                     glPopMatrix();
